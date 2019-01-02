@@ -9,3 +9,4 @@ weather.txt
 logging.custom.cfg
 notifications.cfg
 __pycache__
+.vscode
