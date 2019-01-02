@@ -65,13 +65,8 @@ class terrariumI2CSensor(terrariumSensorSource):
     self.i2c_bus.write_byte(int('0x' + gpio_pins[0],16), trigger)
     sleep(timeout * 2.0)
     data1 = self.i2c_bus.read_byte(int('0x' + gpio_pins[0],16))
-    try:
-      data2 = self.i2c_bus.read_byte(int('0x' + gpio_pins[0],16))
-    except Exception as ex:
-      data2 = data1
-      logger.exception('Error getting second part of data in bytes from sensor \'%s\' at device %s with address %s with error: %s',(self.__class__.__name__,self.__device_number,self.__address,ex))
 
-    return (data1,data2)
+    return (data1)
 
   def load_raw_data(self):
     data = None
